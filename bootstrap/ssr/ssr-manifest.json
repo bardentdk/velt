@@ -1,0 +1,14 @@
+{
+  "resources/js/Components/UI/PrimaryButton.vue": [],
+  "resources/js/Components/UI/SecondaryButton.vue": [],
+  "resources/js/Layouts/AdminLayout.vue": [],
+  "resources/js/Layouts/MainLayout.vue": [],
+  "resources/js/Pages/Admin/Auth/Login.vue": [],
+  "resources/js/Pages/Admin/Dashboard.vue": [],
+  "resources/js/Pages/Contact.vue": [],
+  "resources/js/Pages/Home.vue": [],
+  "resources/js/Pages/Saas.vue": [],
+  "resources/js/Pages/Studio.vue": [],
+  "resources/js/ssr.js": [],
+  "resources/js/ziggy.js": []
+}

@@ -1,0 +1,72 @@
+/* Importation du framework Tailwind v4 */
+@import "tailwindcss";
+
+/* Définition du thème personnalisé VELT.
+   La v4 utilise des variables CSS natives sous la directive @theme.
+   Tailwind va automatiquement créer les classes utilitaires correspondantes
+   (ex: bg-indigo-950, text-cyan-400, font-sans, shadow-glow-cyan).
+*/
+@theme {
+    /* -- FONTS -- */
+    /* On ajoute Inter avant les fontes sans-serif par défaut */
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    /* -- COULEURS VELT (Charte Graphique) -- */
+    /* Structure */
+    --color-indigo-900: #0F172A;
+    --color-indigo-950: #020617;
+    /* Accents */
+    --color-cyan-300: #67E8F9;
+    --color-cyan-400: #22D3EE;
+    /* Neutres / Textes */
+    --color-slate-100: #F1F5F9;
+    --color-slate-400: #94A3B8;
+
+    /* -- OMBRES PERSONNALISÉES -- */
+    /* Pour l'effet "Glow" sur les boutons et les cartes */
+    /* Syntaxe v4 : --shadow-[nom]: [valeur CSS standard] */
+    --shadow-glow-cyan: 0 0 20px -5px rgb(34 211 238 / 0.5);
+}
+
+/* Styles globaux de base.
+   En v4, on utilise @layer base pour ça.
+*/
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        /* Application du fond et de la couleur de texte par défaut */
+        @apply bg-indigo-950 text-slate-100 font-sans antialiased;
+        /* Couleur de sélection de texte (surlignage) */
+        @apply selection:bg-cyan-400 selection:text-indigo-950;
+    }
+
+    /* Custom Scrollbar "Tech" pour Webkit (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        @apply bg-indigo-950;
+    }
+    ::-webkit-scrollbar-thumb {
+        /* Note comment on peut mélanger @apply et des styles natifs */
+        @apply bg-indigo-900 rounded-full border border-slate-400/20;
+        transition: background-color 0.3s;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-cyan-400/50;
+    }
+}
+
+/* Utilitaires personnalisés si nécessaire 
+   (pour les gradients complexes par exemple)
+*/
+@layer utilities {
+    /* Recréation du gradient radial top utilisé dans Home.vue */
+    .bg-gradient-radial-top {
+        background-image: radial-gradient(circle at top, var(--tw-gradient-stops));
+    }
+}

@@ -1,0 +1,56 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="neon-bloom" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2" />
+            <feMerge>
+                <feMergeNode in="blur2" />
+                <feMergeNode in="blur1" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+
+        <linearGradient id="tech-gradient" x1="0" y1="0" x2="1000" y2="1000" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#22D3EE" />
+            <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0.8" />
+        </linearGradient>
+
+        <mask id="fade-mask">
+            <radialGradient id="fade-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="40%" stop-color="white" stop-opacity="1"/>
+                <stop offset="100%" stop-color="black" stop-opacity="0"/>
+            </radialGradient>
+            <rect x="0" y="0" width="1000" height="1000" fill="url(#fade-gradient)"/>
+        </mask>
+    </defs>
+
+    <g filter="url(#neon-bloom)" mask="url(#fade-mask)" stroke="url(#tech-gradient)" stroke-width="1.5" stroke-linecap="round" fill="none">
+
+        <path d="M450 150 L650 250 L800 450 L700 700 L400 850 L200 650 L150 400 L300 200 Z" stroke-opacity="0.8"/>
+
+        <path d="M450 150 L300 200 L500 350 L450 150 Z"/>
+        <path d="M300 200 L150 400 L350 500 L500 350 L300 200 Z"/>
+        <path d="M150 400 L200 650 L350 500 Z"/>
+        <path d="M200 650 L400 850 L550 650 L350 500 L200 650 Z"/>
+        <path d="M400 850 L700 700 L550 650 L400 850 Z"/>
+        <path d="M700 700 L800 450 L600 500 L550 650 L700 700 Z"/>
+        <path d="M800 450 L650 250 L600 500 L800 450 Z"/>
+        <path d="M650 250 L450 150 L500 350 L600 500 L650 250 Z"/>
+        <path d="M500 350 L350 500 L550 650 L600 500 L500 350 Z" stroke-opacity="0.6"/>
+
+        <g fill="#22D3EE" stroke="none">
+            <circle cx="450" cy="150" r="3"/>
+            <circle cx="650" cy="250" r="3"/>
+            <circle cx="800" cy="450" r="3"/>
+            <circle cx="700" cy="700" r="3"/>
+            <circle cx="400" cy="850" r="3"/>
+            <circle cx="200" cy="650" r="3"/>
+            <circle cx="150" cy="400" r="3"/>
+            <circle cx="300" cy="200" r="3"/>
+            <circle cx="500" cy="350" r="4"/>
+            <circle cx="350" cy="500" r="4"/>
+            <circle cx="550" cy="650" r="4"/>
+            <circle cx="600" cy="500" r="4"/>
+        </g>
+    </g>
+</svg>
