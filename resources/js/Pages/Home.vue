@@ -17,7 +17,7 @@ const saasProducts = [
     <Head title="Studio Digital & SaaS Producter à La Réunion" />
 
     <MainLayout>
-        <section class="px-8 pt-28 pb-32 max-w-7xl mx-auto relative overflow-hidden">
+        <section class="px-8 pt-28 pb-32 max-w-7xl mx-auto relative overflow-hidden w-full">
             <div class="absolute inset-0 bg-tech-grid opacity-50 pointer-events-none"></div>
 
             <div class="flex flex-col lg:flex-row items-center relative z-10">
