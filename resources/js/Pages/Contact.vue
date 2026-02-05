@@ -2,7 +2,7 @@
 import MainLayout from '@/Layouts/MainLayout.vue';
 import PrimaryButton from '@/Components/UI/PrimaryButton.vue';
 import { PhEnvelopeSimple, PhMapPin, PhPhone } from "@phosphor-icons/vue";
-import { useForm } from '@inertiajs/vue3';
+import { useForm, Head } from '@inertiajs/vue3';
 
 // Utilisation du helper useForm d'Inertia pour gérer l'état du formulaire
 const form = useForm({
@@ -20,89 +20,58 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Contactez Velt Studio La Réunion" description="Parlons de votre prochain projet digital. Contactez notre équipe à La Réunion pour discuter de SaaS, développement ou design." />
+    <Head title="Contactez Velt Studio" />
 
     <MainLayout>
-        <section class="pt-20 px-8 pb-32 max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <section class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-85px)] shadow-premium m-8 rounded-3xl overflow-hidden border border-slate-100">
+            <div class="bg-brand-obsidian p-16 lg:p-24 text-white flex flex-col justify-center relative overflow-hidden">
+                <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-indigo/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
 
-            <div>
-                <h1 class="text-4xl md:text-5xl font-extrabold mb-8">Let's create something <span class="text-cyan-400">extraordinary.</span></h1>
-                <p class="text-xl text-slate-400 leading-relaxed mb-12">
-                    Que vous ayez une idée de SaaS révolutionnaire ou besoin d'une refonte complète de votre identité digitale, notre équipe à La Réunion est prête à vous écouter.
-                </p>
+                <div class="relative z-10">
+                    <h1 class="text-5xl md:text-6xl font-black mb-10 leading-tight tracking-tight">Parlons de votre <span class="text-brand-indigo">futur projet.</span></h1>
+                    <p class="text-xl text-slate-300 leading-relaxed mb-16 font-medium">
+                        Notre équipe est prête à analyser vos besoins. Réponses sous 24h ouvrées.
+                    </p>
 
-                <div class="space-y-8">
-                    <div class="flex items-start">
-                        <PhEnvelopeSimple :size="32" class="text-cyan-400 mr-4 mt-1" />
-                        <div>
-                            <h3 class="text-lg font-bold text-slate-100">Email</h3>
-                            <p class="text-slate-400">hello@velt.re (Exemple)</p>
+                    <div class="space-y-10 font-medium">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-brand-indigo/20 rounded-xl flex items-center justify-center text-brand-indigo mr-6">
+                                <PhEnvelopeSimple :size="24" weight="fill" />
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-1 text-white">Email</h3>
+                                <p class="text-slate-300">hello@velt.re</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-start">
-                        <PhMapPin :size="32" class="text-cyan-400 mr-4 mt-1" />
-                        <div>
-                            <h3 class="text-lg font-bold text-slate-100">Studio</h3>
-                            <p class="text-slate-400">Saint-Denis, La Réunion</p>
                         </div>
-                    </div>
-                     <div class="flex items-start">
-                        <PhPhone :size="32" class="text-cyan-400 mr-4 mt-1" />
-                        <div>
-                            <h3 class="text-lg font-bold text-slate-100">Phone</h3>
-                            <p class="text-slate-400">+262 692 00 00 00 (Exemple)</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <div class="bg-indigo-900/30 p-8 md:p-12 rounded-3xl border border-slate-400/10 backdrop-blur-md relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-400/10 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+            <div class="bg-white p-16 lg:p-24 flex flex-col justify-center">
+                <h2 class="text-3xl font-bold text-brand-obsidian mb-12 tracking-tight">Envoyez-nous un message</h2>
 
-                <h2 class="text-2xl font-bold mb-8">Send us a message</h2>
-
-                <form @submit.prevent="submit" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
-                        <input type="text" id="name" v-model="form.name" required
-                               class="w-full px-4 py-3 bg-indigo-950/50 border border-slate-400/20 rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent outline-none transition-all text-slate-100 placeholder-slate-500"
-                               placeholder="John Doe">
+                <form @submit.prevent="submit" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <label class="block text-sm font-bold text-brand-obsidian mb-3">Votre Nom</label>
+                            <input type="text" v-model="form.name" required
+                                   class="w-full px-5 py-4 bg-bg-light border border-slate-200 rounded-xl focus:border-brand-indigo focus:ring-2 focus:ring-brand-indigo/20 outline-none transition-all text-brand-obsidian placeholder-slate-400 font-medium"
+                                   placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-brand-obsidian mb-3">Email Professionnel</label>
+                            <input type="email" v-model="form.email" required
+                                   class="w-full px-5 py-4 bg-bg-light border border-slate-200 rounded-xl focus:border-brand-indigo focus:ring-2 focus:ring-brand-indigo/20 outline-none transition-all text-brand-obsidian placeholder-slate-400 font-medium"
+                                   placeholder="john@company.com">
+                        </div>
                     </div>
-
                     <div>
-                        <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email Address</label>
-                        <input type="email" id="email" v-model="form.email" required
-                               class="w-full px-4 py-3 bg-indigo-950/50 border border-slate-400/20 rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent outline-none transition-all text-slate-100 placeholder-slate-500"
-                               placeholder="john@example.com">
-                    </div>
-
-                     <div>
-                        <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subject</label>
-                        <select id="subject" v-model="form.subject"
-                                class="w-full px-4 py-3 bg-indigo-950/50 border border-slate-400/20 rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent outline-none transition-all text-slate-100"
-                        >
-                            <option value="" disabled selected>Select a topic</option>
-                            <option value="saas">New SaaS Project</option>
-                            <option value="studio">Studio Services (UX/Dev/Branding)</option>
-                            <option value="other">Other Inquiry</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
-                        <textarea id="message" rows="5" v-model="form.message" required
-                                  class="w-full px-4 py-3 bg-indigo-950/50 border border-slate-400/20 rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent outline-none transition-all text-slate-100 placeholder-slate-500 resize-none"
-                                  placeholder="Tell us about your project..."></textarea>
-                    </div>
-
-                    <div>
-                        <PrimaryButton type="submit" class="w-full justify-center py-4 text-lg" :disabled="form.processing">
-                            Send Message
+                        <PrimaryButton type="submit" class="w-full justify-center py-5 text-lg font-bold" :disabled="form.processing">
+                            Envoyer la demande
                         </PrimaryButton>
                     </div>
                 </form>
             </div>
-
         </section>
     </MainLayout>
 </template>

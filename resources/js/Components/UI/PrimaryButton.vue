@@ -2,15 +2,8 @@
 import { Link } from '@inertiajs/vue3';
 
 defineProps({
-    href: {
-        type: String,
-        required: false,
-        default: null,
-    },
-    type: {
-        type: String,
-        default: 'submit',
-    }
+    href: { type: String, default: null },
+    type: { type: String, default: 'submit' }
 });
 </script>
 
@@ -19,7 +12,7 @@ defineProps({
         :is="href ? Link : 'button'"
         :href="href"
         :type="!href ? type : undefined"
-        class="inline-flex items-center px-8 py-3 bg-cyan-400 border border-transparent rounded-full font-semibold text-indigo-950 tracking-wide hover:bg-cyan-300 hover:shadow-glow-cyan transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-indigo-950"
+        class="inline-flex items-center justify-center px-8 py-3 bg-brand-indigo text-white font-bold tracking-wide rounded-lg transition-all duration-300 hover:bg-brand-indigo-dark hover:shadow-indigo-glow hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-indigo focus:ring-offset-2"
     >
         <slot />
     </component>

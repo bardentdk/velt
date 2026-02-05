@@ -1,37 +1,43 @@
 <script setup>
 import { Link, router } from '@inertiajs/vue3';
-import { PhSignOut, PhSquaresFour } from "@phosphor-icons/vue";
+import { PhSignOut, PhSquaresFour, PhStack } from "@phosphor-icons/vue";
 
-const logout = () => {
-    // Route de déconnexion standard de Fortify
-    router.post('/logout');
-};
+const logout = () => router.post('/logout');
 </script>
 
 <template>
-    <div class="min-h-screen bg-indigo-950 flex">
-        <aside class="w-64 bg-indigo-900/50 border-r border-slate-400/10 p-6 flex flex-col">
-             <div class="text-3xl font-black tracking-wider text-slate-100 mb-12">VELT <span class="text-cyan-400 text-xs">Admin</span></div>
+    <div class="min-h-screen bg-bg-light flex font-sans">
+        <aside class="w-72 bg-brand-obsidian text-white flex flex-col relative z-10">
+            <div class="p-8 pl-10">
+                 <svg width="100" height="32" viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fill="white" font-size="24" font-weight="900" style="font-family: Inter; letter-spacing: -0.02em;">VELT</text>
+                </svg>
+            </div>
 
-             <nav class="flex-1 space-y-4">
-                <Link :href="route('admin.dashboard')" class="flex items-center px-4 py-3 bg-cyan-400/10 text-cyan-400 rounded-xl font-medium transition-all">
-                    <PhSquaresFour :size="24" class="mr-3" weight="fill"/>
+             <nav class="flex-1 px-6 space-y-2 py-8">
+                <Link :href="route('admin.dashboard')" class="flex items-center px-4 py-3 bg-brand-indigo/10 text-brand-indigo rounded-xl font-bold transition-all">
+                    <PhSquaresFour :size="22" class="mr-4" weight="fill"/>
                     Dashboard
                 </Link>
-                </nav>
+                <Link href="#" class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl font-bold transition-all">
+                    <PhStack :size="22" class="mr-4" weight="bold"/>
+                    Projets
+                </Link>
+             </nav>
 
-             <div class="border-t border-slate-400/10 pt-6">
-                <div class="text-slate-100 font-medium mb-4 px-2">
+             <div class="p-6 m-6 bg-white/5 rounded-2xl border border-white/5">
+                <div class="text-white font-bold mb-4 flex items-center">
+                    <div class="w-8 h-8 bg-brand-indigo rounded-lg flex items-center justify-center mr-3 text-sm">A</div>
                     {{ $page.props.auth.user.name }}
                 </div>
-                <button @click="logout" class="w-full flex items-center px-4 py-3 text-slate-400 hover:text-red-400 hover:bg-red-400/10 rounded-xl transition-all">
-                    <PhSignOut :size="24" class="mr-3" />
-                    Log Out
+                <button @click="logout" class="w-full flex items-center px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all font-medium text-sm">
+                    <PhSignOut :size="18" class="mr-3" />
+                    Déconnexion
                 </button>
              </div>
         </aside>
 
-        <main class="flex-1 p-8 overflow-y-auto">
+        <main class="flex-1 p-12 overflow-y-auto bg-tech-grid">
             <slot />
         </main>
     </div>

@@ -1,6 +1,8 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue';
-import { PhCheckCircle, PhCloudArrowUp, PhChartBar, PhGraph } from "@phosphor-icons/vue";
+import PrimaryButton from '@/Components/UI/PrimaryButton.vue';
+import { PhCheckCircle, PhCloudArrowUp, PhChartBar, PhGraph, PhArrowRight } from "@phosphor-icons/vue";
+import { Head } from '@inertiajs/vue3';
 
 // Données statiques des produits (à terme, pourraient venir d'une config ou BDD)
 const products = [
@@ -36,44 +38,55 @@ const products = [
 </script>
 
 <template>
-    <Head title="Nos Produits SaaS Innovants" description="Découvrez nos solutions logicielles développées à La Réunion : ReunionFlow, VolcanoMetrics et PrimaryRouting." />
+    <Head title="Nos Produits SaaS Innovants" />
 
     <MainLayout>
-        <section class="pt-20 pb-16 px-8 max-w-7xl mx-auto text-center relative z-10">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">OUR SAAS PRODUCTS</h1>
-             <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                Creating cutting-edge SaaS and bespoke digital experiences that drive innovation and growth from La Réunion to the world.
-            </p>
+        <section class="pt-32 pb-24 px-8 bg-brand-obsidian text-center relative overflow-hidden">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-indigo/10 blur-[120px] rounded-full pointer-events-none"></div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">Nos Produits SaaS</h1>
+                 <p class="text-2xl text-slate-300 leading-relaxed font-medium">
+                    Des solutions logicielles natives, conçues pour résoudre des problèmes réels avec une technologie de pointe.
+                </p>
+            </div>
         </section>
 
-        <section class="px-8 pb-32 max-w-7xl mx-auto relative z-10 space-y-32">
+        <section class="relative z-10">
             <div v-for="(product, index) in products" :key="product.id"
-                 class="flex flex-col lg:flex-row items-center gap-16"
-                 :class="{ 'lg:flex-row-reverse': index % 2 !== 0 }"
+                 class="py-28 px-8"
+                 :class="index % 2 === 0 ? 'bg-white' : 'bg-bg-light bg-tech-grid'"
             >
-                <div class="flex-1 space-y-8">
-                    <div class="flex items-center space-x-4">
-                         <div class="w-12 h-12 bg-indigo-900/50 rounded-xl flex items-center justify-center border border-cyan-400/20">
-                            <component :is="product.icon" :size="28" weight="fill" class="text-cyan-400" />
+                <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20"
+                     :class="{ 'lg:flex-row-reverse': index % 2 !== 0 }">
+
+                    <div class="flex-1 space-y-8">
+                        <div class="flex items-center space-x-6">
+                             <div class="w-16 h-16 bg-brand-indigo text-white rounded-2xl flex items-center justify-center shadow-indigo-glow">
+                                <component :is="product.icon" :size="36" weight="fill" />
+                            </div>
+                            <h2 class="text-4xl font-black text-brand-obsidian tracking-tight">{{ product.title }}</h2>
                         </div>
-                        <h2 class="text-3xl font-bold">{{ product.title }}</h2>
+                        <p class="text-2xl text-brand-indigo font-bold">{{ product.subtitle }}</p>
+                        <p class="text-brand-gray leading-relaxed text-xl font-medium">{{ product.description }}</p>
+
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
+                            <li v-for="feature in product.features" :key="feature" class="flex items-center space-x-3 font-bold text-brand-obsidian">
+                                <PhCheckCircle :size="24" weight="fill" class="text-brand-indigo flex-shrink-0" />
+                                <span>{{ feature }}</span>
+                            </li>
+                        </ul>
+                        <div class="pt-8">
+                            <PrimaryButton class="px-8 py-4 text-lg">Demander une démo <PhArrowRight class="ml-3" weight="bold"/></PrimaryButton>
+                        </div>
                     </div>
-                    <p class="text-xl text-cyan-300">{{ product.subtitle }}</p>
-                    <p class="text-slate-400 leading-relaxed text-lg">{{ product.description }}</p>
 
-                    <ul class="space-y-4 mt-8">
-                        <li v-for="feature in product.features" :key="feature" class="flex items-center space-x-3">
-                            <PhCheckCircle :size="24" weight="fill" class="text-cyan-400 flex-shrink-0" />
-                            <span class="text-slate-100">{{ feature }}</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="flex-1 relative group">
-                    <div class="absolute inset-0 bg-cyan-400/20 blur-[80px] rounded-full group-hover:bg-cyan-400/30 transition-all duration-700 -z-10"></div>
-                    <img :src="product.image" :alt="product.title + ' Dashboard'"
-                         class="rounded-2xl border-2 border-slate-400/10 shadow-2xl shadow-indigo-950/50 group-hover:border-cyan-400/50 group-hover:scale-[1.02] transition-all duration-500 object-cover w-full h-auto"
-                    >
+                    <div class="flex-1 relative perspective-1000">
+                        <img :src="product.image" :alt="product.title + ' Dashboard'"
+                             class="rounded-2xl border border-slate-200 shadow-premium w-full h-auto bg-white p-2 transform transition-all duration-700 hover:rotate-0"
+                             :class="index % 2 === 0 ? 'lg:rotateY(5deg)' : 'lg:rotateY(-5deg)'"
+                        >
+                    </div>
                 </div>
             </div>
         </section>
