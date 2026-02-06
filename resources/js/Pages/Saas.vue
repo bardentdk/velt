@@ -8,7 +8,8 @@ import {
     PhGraph,
     PhArrowRight,
     PhShieldCheck,
-    PhServer,
+    PhArrowsClockwise, 
+    PhDatabase,
     PhLifebuoy,
     PhCpu,
     PhQuestion
@@ -154,7 +155,7 @@ const faqs = [
             <div class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
                 <div class="lg:w-1/2">
                     <div class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-bold bg-brand-indigo/20 text-brand-indigo mb-8 ring-1 ring-inset ring-brand-indigo/30">
-                        <PhServer class="mr-2" weight="bold"/> Infrastructure Cloud-Native
+                        <PhDatabase class="mr-2" weight="bold"/> Infrastructure Cloud-Native
                     </div>
                     <h2 class="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight leading-tight">
                         Robustesse, Sécurité et <span class="text-brand-indigo">Performance.</span>

@@ -1,14 +1,41 @@
 {
-  "resources/js/Components/UI/PrimaryButton.vue": [],
-  "resources/js/Components/UI/SecondaryButton.vue": [],
-  "resources/js/Layouts/AdminLayout.vue": [],
-  "resources/js/Layouts/MainLayout.vue": [],
-  "resources/js/Pages/Admin/Auth/Login.vue": [],
-  "resources/js/Pages/Admin/Dashboard.vue": [],
-  "resources/js/Pages/Contact.vue": [],
-  "resources/js/Pages/Home.vue": [],
-  "resources/js/Pages/Saas.vue": [],
-  "resources/js/Pages/Studio.vue": [],
-  "resources/js/ssr.js": [],
-  "resources/js/ziggy.js": []
+  "public/images/logo.svg": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Components/UI/PrimaryButton.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Layouts/AdminLayout.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Layouts/MainLayout.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Pages/Admin/Auth/Login.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Pages/Admin/Dashboard.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Pages/Contact.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Pages/Home.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Pages/Maintenance.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Pages/Saas.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/Pages/Studio.vue": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/ssr.js": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ],
+  "resources/js/ziggy.js": [
+    "/build/assets/logo-DQBvSblT.svg"
+  ]
 }
