@@ -8,7 +8,7 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div class="min-h-screen flex flex-col bg-white relative font-sans">
-        <nav class="py-5 px-8 flex items-center justify-between relative z-50 bg-white/90 backdrop-blur-xl border-b border-slate-100">
+        <nav class="sticky top-0 py-5 px-8 flex items-center justify-between z-50 bg-white/90 backdrop-blur-xl border-b border-slate-100">
             <Link :href="route('home')" class="flex items-center group">
                  <!-- <svg width="110" height="32" viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <text x="0" y="24" fill="#070B15" font-size="24" font-weight="900" style="font-family: Inter; letter-spacing: -0.02em;">VELT</text>
